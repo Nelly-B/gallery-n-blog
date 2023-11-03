@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+{% block title %}Gallery{% endblock %}
+{% block content %}
+
+<div class="container">
+    <h2 class="text-center py-4">Image Gallery</h2>
+    <div class="row">
+        {% for img in images %}
+        <div class="col-lg-3 col-md-6 col-sm-12 mt-4 ">
+            <img src="{{img.image.url}}" width="100%" alt="{{img.category}}">
+            
+        </div>
+        {% endfor %}
+
+<!-- <main class="main-content">
+    <div class="container-fluid photos">
+        <div class="row align-items-stretch">
+            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up">
+                <a href="static/images/img_1.jpg" class="d-block photo-item" data-fancybox="gallery">
+                    <img src="static/images/img_1.jpg" alt="Image" class="img-fluid">
+                    <div class="photo-text-more">
+                        <span class="icon icon-search"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <a href="static/images/img_2.jpg" class="d-block photo-item" data-fancybox="gallery">
+                    <img src="static/images/img_2.jpg" alt="Image" class="img-fluid">
+                    <div class="photo-text-more">
+                        <span class="icon icon-search"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <a href="static/images/img_3.jpg" class="d-block photo-item" data-fancybox="gallery">
+                    <img src="static/images/img_3.jpg" alt="Image" class="img-fluid">
+                    <div class="photo-text-more">
+                        <span class="icon icon-search"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up">
+                <a href="static/images/img_4.jpg" class="d-block photo-item" data-fancybox="gallery">
+                    <img src="static/images/img_4.jpg" alt="Image" class="img-fluid">
+                    <div class="photo-text-more">
+                        <span class="icon icon-search"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <a href="static/images/img_5.jpg" class="d-block photo-item" data-fancybox="gallery">
+                    <img src="static/images/img_5.jpg" alt="Image" class="img-fluid">
+                    <div class="photo-text-more">
+                        <span class="icon icon-search"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <a href="static/images/img_6.jpg" class="d-block photo-item" data-fancybox="gallery">
+                    <img src="static/images/img_6.jpg" alt="Image" class="img-fluid">
+                    <div class="photo-text-more">
+                        <span class="icon icon-search"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up">
+                <a href="static/images/img_7.jpg" class="d-block photo-item" data-fancybox="gallery">
+                    <img src="static/images/img_7.jpg" alt="Image" class="img-fluid">
+                    <div class="photo-text-more">
+                        <span class="icon icon-search"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <a href="static/images/img_8.jpg" class="d-block photo-item" data-fancybox="gallery">
+                    <img src="static/images/img_8.jpg" alt="Image" class="img-fluid">
+                    <div class="photo-text-more">
+                        <span class="icon icon-search"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <a href="static/images/img_9.jpg" class="d-block photo-item" data-fancybox="gallery">
+                    <img src="static/images/img_9.jpg" alt="Image" class="img-fluid">
+                    <div class="photo-text-more">
+                        <span class="icon icon-search"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up">
+                <a href="static/images/img_10.jpg" class="d-block photo-item" data-fancybox="gallery">
+                    <img src="static/images/img_10.jpg" alt="Image" class="img-fluid">
+                    <div class="photo-text-more">
+                        <span class="icon icon-search"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up">
+                <a href="static/images/img_1.jpg" class="d-block photo-item" data-fancybox="gallery">
+                    <img src="static/images/img_1.jpg" alt="Image" class="img-fluid">
+                    <div class="photo-text-more">
+                        <span class="icon icon-search"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <a href="static/images/img_2.jpg" class="d-block photo-item" data-fancybox="gallery">
+                    <img src="static/images/img_2.jpg" alt="Image" class="img-fluid">
+                    <div class="photo-text-more">
+                        <span class="icon icon-search"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <a href="static/images/img_3.jpg" class="d-block photo-item" data-fancybox="gallery">
+                    <img src="static/images/img_3.jpg" alt="Image" class="img-fluid">
+                    <div class="photo-text-more">
+                        <span class="icon icon-search"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up">
+                <a href="static/images/img_4.jpg" class="d-block photo-item" data-fancybox="gallery">
+                    <img src="static/images/img_4.jpg" alt="Image" class="img-fluid">
+                    <div class="photo-text-more">
+                        <span class="icon icon-search"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <a href="static/images/img_5.jpg" class="d-block photo-item" data-fancybox="gallery">
+                    <img src="static/images/img_5.jpg" alt="Image" class="img-fluid">
+                    <div class="photo-text-more">
+                        <span class="icon icon-search"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <a href="static/images/img_6.jpg" class="d-block photo-item" data-fancybox="gallery">
+                    <img src="static/images/img_6.jpg" alt="Image" class="img-fluid">
+                    <div class="photo-text-more">
+                        <span class="icon icon-search"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up">
+                <a href="static/images/img_7.jpg" class="d-block photo-item" data-fancybox="gallery">
+                    <img src="static/images/img_7.jpg" alt="Image" class="img-fluid">
+                    <div class="photo-text-more">
+                        <span class="icon icon-search"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <a href="static/images/img_8.jpg" class="d-block photo-item" data-fancybox="gallery">
+                    <img src="static/images/img_8.jpg" alt="Image" class="img-fluid">
+                    <div class="photo-text-more">
+                        <span class="icon icon-search"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <a href="static/images/img_9.jpg" class="d-block photo-item" data-fancybox="gallery">
+                    <img src="static/images/img_9.jpg" alt="Image" class="img-fluid">
+                    <div class="photo-text-more">
+                        <span class="icon icon-search"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up">
+                <a href="static/images/img_10.jpg" class="d-block photo-item" data-fancybox="gallery">
+                    <img src="static/images/img_10.jpg" alt="Image" class="img-fluid">
+                    <div class="photo-text-more">
+                        <span class="icon icon-search"></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</main> -->
+
+{% endblock %}

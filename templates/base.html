@@ -1,0 +1,192 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title%}Gallery App{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery.scrollbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fancybox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/swiper.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://my-subdomain.example.com/cdn-cgi/zaraz/i.js"></script>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous"> -->
+    <script nonce="56a20138-aa2a-44d3-96ae-681eb13241a1">
+        (function (w, d) {
+            ! function (db, dc, dd, de) {
+                db[dd] = db[dd] || {};
+                db[dd].executed = [];
+                db.zaraz = {
+                    deferred: [],
+                    listeners: []
+                };
+                db.zaraz.q = [];
+                db.zaraz._f = function (df) {
+                    return async function () {
+                        var dg = Array.prototype.slice.call(arguments);
+                        db.zaraz.q.push({
+                            m: df,
+                            a: dg
+                        })
+                    }
+                };
+                for (const dh of ["track", "set", "debug"]) db.zaraz[dh] = db.zaraz._f(dh);
+                db.zaraz.init = () => {
+                    var di = dc.getElementsByTagName(de)[0],
+                        dj = dc.createElement(de),
+                        dk = dc.getElementsByTagName("title")[0];
+                    dk && (db[dd].t = dc.getElementsByTagName("title")[0].text);
+                    db[dd].x = Math.random();
+                    db[dd].w = db.screen.width;
+                    db[dd].h = db.screen.height;
+                    db[dd].j = db.innerHeight;
+                    db[dd].e = db.innerWidth;
+                    db[dd].l = db.location.href;
+                    db[dd].r = dc.referrer;
+                    db[dd].k = db.screen.colorDepth;
+                    db[dd].n = dc.characterSet;
+                    db[dd].o = (new Date).getTimezoneOffset();
+                    if (db.dataLayer)
+                        for (const dp of Object.entries(Object.entries(dataLayer).reduce(((dq, dr) => ({
+                                ...dq[1],
+                                ...dr[1]
+                            })), {}))) zaraz.set(dp[0], dp[1], {
+                            scope: "page"
+                        });
+                    db[dd].q = [];
+                    for (; db.zaraz.q.length;) {
+                        const ds = db.zaraz.q.shift();
+                        db[dd].q.push(ds)
+                    }
+                    dj.defer = !0;
+                    for (const dt of [localStorage, sessionStorage]) Object.keys(dt || {}).filter((dv => dv
+                        .startsWith("_zaraz_"))).forEach((du => {
+                        try {
+                            db[dd]["z_" + du.slice(7)] = JSON.parse(dt.getItem(du))
+                        } catch {
+                            db[dd]["z_" + du.slice(7)] = dt.getItem(du)
+                        }
+                    }));
+                    dj.referrerPolicy = "origin";
+                    dj.src = "../../cdn-cgi/zaraz/sd0d9.js?z=" + btoa(encodeURIComponent(JSON.stringify(db[
+                        dd])));
+                    di.parentNode.insertBefore(dj, di)
+                };
+                ["complete", "interactive"].includes(dc.readyState) ? zaraz.init() : db.addEventListener(
+                    "DOMContentLoaded", zaraz.init)
+            }(w, d, "zarazData", "script");
+        })(window, document);
+    </script>
+    
+</head>
+
+<body>
+    <div class="site-wrap">
+        <div class="site-mobile-menu">
+            <div class="site-mobile-menu-header">
+                <div class="site-mobile-menu-close mt-3">
+                    <span class="icon-close2 js-menu-toggle"></span>
+                </div>
+            </div>
+            <div class="site-mobile-menu-body"></div>
+        </div>
+        <header class="header-bar d-flex d-lg-flex align-items-center" data-aos="fade-down">
+            <div class="site-logo">
+                <a href="index-2.html">Thumber</a>
+            </div>
+            <div class="d-inline-block d-xl-block ml-md-0 ml-auto py-3" style="position: relative; top: 3px;"><a
+                    href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span> <span
+                        style="position: relative;top: -4px; text-transform: uppercase;">Menu</span></a></div>
+            <div class="main-menu d-none">
+                <ul class="js-clone-nav">
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'photos' %}">Photos</a></li>
+                        <li><a href="{% url 'blog' %}">Blog</a></li>
+                        <li><a href="{% url 'add_post' %}">Add Post</a></li>
+                        <li><a href="{% url 'add_category' %}">Add Category</a></li>
+                        
+                        <li><a href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                        <li><a href="{% url 'register' %}">Register</a></li>
+                        <li><a href="{% url 'login' %}">Login</a></li>
+                    {% endif %}
+                    <li class="active"><a href="{% url 'homepage' %}">Home</a></li>
+                    <!-- cat_menu code -->
+                    {% if cat_menu %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Category</a>
+                        <div class="dropdown-menu">
+                             
+                             {% for item in cat_menu %}
+                             <a class="dropdown-item" href="{% url 'category' item %}">{{item}}</a>
+                             {% endfor %} 
+
+                        </div>
+                      </li>
+                    {% else %}
+                    <li><a href="{% url 'categories_list' %}">Categories</a></li>
+                    {% endif %}
+                  
+                </ul>
+                <ul class="social js-clone-nav">
+                    <li><a href="#"><span class="icon-facebook"></span></a></li>
+                    <li><a href="#"><span class="icon-twitter"></span></a></li>
+                    <li><a href="#"><span class="icon-instagram"></span></a></li>
+                </ul>
+            </div>
+        </header>
+
+        {% block content %}{% endblock %}
+        <!--  -->
+    </div>
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static  'js/owl.carousel.min.js' %}"></script>
+
+    <script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap-datepicker.min.js' %}"></script>
+    <script src="{% static 'js/aos.js' %}"></script>
+    <script src="{% static 'js/jquery.fancybox.min.js' %}"></script>
+    <script src="{% static 'js/swiper.min.js' %}"></script>
+    <script src="{% static 'js/jquery.scrollbar.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+    </script>
+    <script defer
+        src="https://static.cloudflareinsights.com/beacon.min.js/v8b253dfea2ab4077af8c6f58422dfbfd1689876627854"
+        integrity="sha512-bjgnUKX4azu3dLTVtie9u6TKqgx29RBwfj3QXYt5EKfWM/9hPSAI/4qcV5NACjwAo8UtTeWefx6Zq5PHcMm7Tg=="
+        data-cf-beacon='{"rayId":"7ffbfd5f2b1f1c8f","version":"2023.8.0","b":1,"token":"cd0b4b3a733644fc843ef0b185f98241","si":100}'
+        crossorigin="anonymous"></script>
+
+
+        <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8b253dfea2ab4077af8c6f58422dfbfd1689876627854" integrity="sha512-bjgnUKX4azu3dLTVtie9u6TKqgx29RBwfj3QXYt5EKfWM/9hPSAI/4qcV5NACjwAo8UtTeWefx6Zq5PHcMm7Tg==" data-cf-beacon='{"rayId":"7ffbfd88f9310eb4","version":"2023.8.0","b":1,"token":"cd0b4b3a733644fc843ef0b185f98241","si":100}' crossorigin="anonymous"></script>
+
+
+        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script> -->
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Create Category{% endblock %}
+{% block content %}
+{% if user.is_authenticated %}<br><br><br>
+<div class="cat" style="">
+    <div class="category" style="justify-content: center; align-items: center; display: flex; flex-direction: column;">
+        <h1>Add Category ...</h1>
+        <div class="form-group">
+            <div class="addpost" style="padding: 20px;">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <button class="btn btn-secondary">Add Category</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+{% endif %}   
+    
+{% endblock %}

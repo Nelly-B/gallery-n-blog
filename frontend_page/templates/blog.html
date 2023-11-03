@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}{% endblock %}
+{% block content %}<br><br><br><br>
+<h1 style="color: #fff; padding-left: 20px;">Blog Post</h1>
+{% for post in object_list %}<br>
+<div class="group" style="padding-left: 20px;">
+    <div class="blog" style="width: 70%; background-color: #fff; padding-left: 25px; border-radius: 10px;">
+        <ul class="blog2" style="padding: 10px;">
+            <li>
+                <!-- {{post.picture}} -->
+                <a href="{% url 'article-details' post.pk %}">
+                    {{post.title}} - {{post.author.id}}</a>
+                    <a href="{% url 'category' post.category %}"> {{post.category}}</a>
+                <br>By:
+                {{post.author}}
+                <small>
+                    {{post.post_date}}
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'update_post' post.pk %}">(Edit)</a>
+                        <a href="{% url 'delete_post' post.pk %}">(Delete)</a>
+                    {% endif %}
+                </small><br>
+                {{post.body|slice:":200"|safe}}<br>
+                
+            </li>
+            
+        </ul>
+    </div>
+        
+</div>
+
+{% endfor %}
+
+<!-- <form action="" method="POST">
+    {% csrf_token %}
+    <div style="background-color: #fff; justify-content: center; align-items: center; display: flex;">
+        {{form.as_p}}
+    </div>
+    <button type="submit"></button>
+</form> -->
+
+{% endblock %}

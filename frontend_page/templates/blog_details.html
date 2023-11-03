@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}{{post.title}}{% endblock %}
+{% block content %}<br><br><br>
+    <div class="blog" style="width: 50%; height: 200px; background-color: #fff; padding-left: 25px; border-radius: 10px;">
+                
+            <h1>{{ post.title }}</h1><br>
+            <small>By:
+                {{ post.author }} 
+                {{ post.post_date }}
+            </small><br><hr>
+        {% if user.is_authenticated %}
+        {% endif %}
+            
+            {{ posts.body|safe }}
+            
+            <a href="{% url 'blog' %}">Back</a>
+    </div>
+
+{% endblock %}
